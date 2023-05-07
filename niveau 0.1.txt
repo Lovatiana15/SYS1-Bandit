@@ -1,0 +1,10 @@
+Niveau 0-1:
+bandit0@bandit:~$ ls
+ readme 
+bandit0@bandit:~$ cat readme
+ NH2SXQwcBdpmTEzi3bvBHMM9H66vVXjL
+Explication de la commande : 
+ls: est utilisée pour afficher le contenu d'un répertoire, c'est-à-dire la liste des fichiers et des dossiers qu'il contient
+cat: est utilisée pour afficher le contenu d'un fichier texte.
+
+
