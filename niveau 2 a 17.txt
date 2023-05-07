@@ -1,0 +1,429 @@
+niveau 0 :
+mdp: bandit0
+
+niveau 1:
+bandit0@bandit:~$ ls
+ readme 
+bandit0@bandit:~$ cat readme
+ NH2SXQwcBdpmTEzi3bvBHMM9H66vVXjL
+Explication de la commande : 
+ls: est utilisée pour afficher le contenu d'un répertoire, c'est-à-dire la liste des fichiers et des dossiers qu'il contient
+cat: est utilisée pour afficher le contenu d'un fichier texte.
+
+niveau 2 :
+bandit1@bandit:~$ cd /home/bandit2
+bandit1@bandit:cd /home/bandit2~$ cat ./-
+rRGizSaX8Mk1RTb1CNQoXTcYZWU6lgzi
+Explication de la commande : 
+./-: Le préfixe du nom de fichier avec un chemin utilisé pour modifier la chaîne du nom de fichier afin que la commande cat fasse référence à un fichier appelé - .
+
+niveau 3: 
+ssh bandit2@bandit.labs.overthewire.org -p 2220
+bandit2@bandit:~$ ls
+spaces in this filename 
+bandit2@bandit:~$ cat 'spaces in this filename'
+aBZ0W5EmUfAf7kHTQeOwd8bauFJ2lAiG
+Explication de la commande : 
+cat 'spaces in this filename': Le préfixe du nom de fichier avec guillemets, afin que la commande cat puisse identifier l'espace comme faisant partie du nom de fichier.
+
+niveau 4: 
+ssh bandit3@bandit.labs.overthewire.org -p 2220
+bandit3@bandit:~$ ls
+ inhere 
+bandit3@bandit:~$ cd inhere 
+bandit3@bandit:~/inhere$ ls -al
+ total 12 
+drwxr-xr-x 2 root root 4096 Oct 16 2018 . 
+drwxr-xr-x 3 racine racine 4096 16 octobre 2018 .. 
+-rw-r----- 1 bandit4 bandit3 33 16 octobre 2018 .hidden 
+bandit3@bandit:~/inhere$ cat .hidden
+2EW7BBsr6aMMoJ2HjW067dm8EgX26xNe
+Explication de la commande : 
+cd: Changer le répertoire de travail du shell. 
+ls -al:affiche la liste de tous les fichiers et répertoires (y compris les fichiers cachés) dans un format détaillé qui inclut les autorisations, le propriétaire, la taille, la date de modification et le nom de chaque fichier ou répertoire. 
+
+
+niveau 5: 
+ssh bandit4@bandit.labs.overthewire.org -p 2220
+bandit4@bandit:~$ ls
+ inhere 
+bandit4@bandit:~$ cd inhere 
+bandit4@bandit:~/inhere$ ls
+ -file00 -file02 -file04 -file06 -file08 
+-file01 -file03 -file05 -file07 -file09 
+bandit4@bandit:~ /inhere$ file ./*
+ ./-file00 : données 
+./-file01 : données 
+./-file02 : données 
+./-file03 : données 
+./-file04 : données 
+./-file05 : données 
+./-file06 : données 
+. / -file07 : texte ASCII
+bandit4@bandit:~/inhere$ cat ./-file07
+lrIWWI6bB37kxfiCQZqUdOIYfr6eEeqR
+Explication de la commande : 
+file → Utilisé pour déterminer le type d'un fichier. 
+./* → Sélectionnez tous les fichiers du répertoire.
+
+
+niveau 6:
+ssh bandit5@bandit.labs.overthewire.org -p 2220
+bandit5@bandit:~$ ls
+inhere
+bandit5@bandit:~$ cd inhere
+bandit5@bandit:~/inhere$ ls
+maybehere00  maybehere04  maybehere08  maybehere12  maybehere16
+maybehere01  maybehere05  maybehere09  maybehere13  maybehere17
+maybehere02  maybehere06  maybehere10  maybehere14  maybehere18
+maybehere03  maybehere07  maybehere11  maybehere15  maybehere19
+bandit5@bandit:~/inhere$ find -size 1033c
+./maybehere07/.file2
+bandit5@bandit:~/inhere$ cat ./maybehere07/.file2
+P4L4vucdmLnm8I7Vl7jG1ApGSfjYKqJU
+Explication de la commande : 
+find → est une commande Linux qui permet de rechercher des fichiers et des répertoires dans une arborescence de fichiers
+
+niveau 7: 
+ssh bandit6@bandit.labs.overthewire.org -p 2220
+bandit6@bandit:~$ find / -user bandit7 -group bandit6 -size 33c
+find: ‘/var/log’: Permission denied
+find: ‘/var/crash’: Permission denied
+find: ‘/var/spool/rsyslog’: Permission denied
+find: ‘/var/spool/bandit24’: Permission denied
+find: ‘/var/spool/cron/crontabs’: Permission denied
+find: ‘/var/tmp’: Permission denied
+find: ‘/var/lib/polkit-1’: Permission denied
+/var/lib/dpkg/info/bandit7.password
+find: ‘/var/lib/chrony’: Permission denied
+find: ‘/var/lib/apt/lists/partial’: Permission denied
+find: ‘/var/lib/amazon’: Permission denied
+find: ‘/var/lib/update-notifier/package-data-downloads/partial’: Permission denied
+find: ‘/var/lib/snapd/void’: Permission denied
+find: ‘/var/lib/snapd/cookie’: Permission denied
+find: ‘/var/lib/ubuntu-advantage/apt-esm/var/lib/apt/lists/partial’: Permission denied
+find: ‘/var/lib/private’: Permission denied
+find: ‘/var/snap/lxd/common/lxd’: Permission denied
+find: ‘/var/cache/ldconfig’: Permission denied
+find: ‘/var/cache/apt/archives/partial’: Permission denied
+find: ‘/var/cache/pollinate’: Permission denied
+find: ‘/var/cache/private’: Permission denied
+find: ‘/var/cache/apparmor/a4dd844e.0’: Permission denied
+find: ‘/var/cache/apparmor/8eeb6286.0’: Permission denied
+find: ‘/drifter/drifter14_src/axTLS’: Permission denied
+find: ‘/home/bandit29-git’: Permission denied
+find: ‘/home/drifter6/data’: Permission denied
+find: ‘/home/bandit28-git’: Permission denied
+find: ‘/home/drifter8/chroot’: Permission denied
+find: ‘/home/ubuntu’: Permission denied
+find: ‘/home/bandit5/inhere’: Permission denied
+find: ‘/home/bandit27-git’: Permission denied
+find: ‘/home/bandit30-git’: Permission denied
+find: ‘/home/bandit31-git’: Permission denied
+find: ‘/boot/efi’: Permission denied
+find: ‘/proc/tty/driver’: Permission denied
+find: ‘/proc/937138/task/937138/fd/6’: No such file or directory
+find: ‘/proc/937138/task/937138/fdinfo/6’: No such file or directory
+find: ‘/proc/937138/fd/5’: No such file or directory
+find: ‘/proc/937138/fdinfo/5’: No such file or directory
+find: ‘/etc/polkit-1/localauthority’: Permission denied
+find: ‘/etc/ssl/private’: Permission denied
+find: ‘/etc/multipath’: Permission denied
+find: ‘/etc/sudoers.d’: Permission denied
+find: ‘/dev/mqueue’: Permission denied
+find: ‘/dev/shm’: Permission denied
+find: ‘/tmp’: Permission denied
+find: ‘/snap/core18/2721/etc/ssl/private’: Permission denied
+find: ‘/snap/core18/2721/root’: Permission denied
+find: ‘/snap/core18/2721/var/cache/ldconfig’: Permission denied
+find: ‘/snap/core18/2721/var/lib/private’: Permission denied
+find: ‘/snap/core20/1852/etc/ssl/private’: Permission denied
+find: ‘/snap/core20/1852/root’: Permission denied
+find: ‘/snap/core20/1852/var/cache/ldconfig’: Permission denied
+find: ‘/snap/core20/1852/var/cache/private’: Permission denied
+find: ‘/snap/core20/1852/var/lib/private’: Permission denied
+find: ‘/snap/core20/1852/var/lib/snapd/void’: Permission denied
+find: ‘/lost+found’: Permission denied
+find: ‘/run/chrony’: Permission denied
+find: ‘/run/user/11014’: Permission denied
+find: ‘/run/user/11029’: Permission denied
+find: ‘/run/user/11030’: Permission denied
+find: ‘/run/user/11016’: Permission denied
+find: ‘/run/user/11007’: Permission denied
+find: ‘/run/user/11003’: Permission denied
+find: ‘/run/user/11017’: Permission denied
+find: ‘/run/user/11021’: Permission denied
+find: ‘/run/user/11002’: Permission denied
+find: ‘/run/user/11008’: Permission denied
+find: ‘/run/user/11019’: Permission denied
+find: ‘/run/user/11027’: Permission denied
+find: ‘/run/user/11018’: Permission denied
+find: ‘/run/user/11009’: Permission denied
+find: ‘/run/user/11022’: Permission denied
+find: ‘/run/user/11025’: Permission denied
+find: ‘/run/user/11004’: Permission denied
+find: ‘/run/user/11011’: Permission denied
+find: ‘/run/user/11020’: Permission denied
+find: ‘/run/user/11006/systemd/inaccessible/dir’: Permission denied
+find: ‘/run/user/11015’: Permission denied
+find: ‘/run/user/11023’: Permission denied
+find: ‘/run/user/11013’: Permission denied
+find: ‘/run/user/11024’: Permission denied
+find: ‘/run/user/11001’: Permission denied
+find: ‘/run/user/11005’: Permission denied
+find: ‘/run/user/11012’: Permission denied
+find: ‘/run/user/11000’: Permission denied
+find: ‘/run/sudo’: Permission denied
+find: ‘/run/screen/S-bandit13’: Permission denied
+find: ‘/run/screen/S-bandit33’: Permission denied
+find: ‘/run/screen/S-bandit20’: Permission denied
+find: ‘/run/multipath’: Permission denied
+find: ‘/run/cryptsetup’: Permission denied
+find: ‘/run/lvm’: Permission denied
+find: ‘/run/credentials/systemd-sysusers.service’: Permission denied
+find: ‘/run/systemd/propagate’: Permission denied
+find: ‘/run/systemd/unit-root’: Permission denied
+find: ‘/run/systemd/inaccessible/dir’: Permission denied
+find: ‘/run/lock/lvm’: Permission denied
+find: ‘/root’: Permission denied
+find: ‘/sys/kernel/tracing’: Permission denied
+find: ‘/sys/kernel/debug’: Permission denied
+find: ‘/sys/fs/pstore’: Permission denied
+find: ‘/sys/fs/bpf’: Permission denied
+bandit6@bandit:~$ cat /var/lib/dpkg/info/bandit7.password
+z7WtoNQU2XfjmMtWA8u5rN4vzqu4v99S
+Explication de la commande : 
+find → Utilisé pour rechercher et localiser la liste des fichiers et des répertoires en fonction des conditions que vous spécifiez pour les fichiers qui correspondent aux arguments. 
+-taille → Utilisé pour trouver tous les fichiers d'une taille particulière. 
+-use r → Utilisé pour trouver tous les fichiers d'un utilisateur particulier. 
+-group → Utilisé pour trouver tous les fichiers d'un groupe particulier.
+
+niveau 8:
+ ssh bandit7@bandit.labs.overthewire.org -p 2220
+ bandit7@bandit:~$ ls
+data.txt
+bandit7@bandit:~$ grep "millionieme" data.txt
+millionth	TESKZC0XvTetK0S9xNwm25STk5iWrBvP
+Explication de la commande : 
+grep → Utilisé pour rechercher du texte ou rechercher dans un fichier donné des lignes contenant une correspondance avec les mots/chaînes fournis.
+
+niveau 9:
+ssh bandit8@bandit.labs.overthewire.org -p 2220
+bandit8@bandit:~$ ls
+data.txt
+bandit8@bandit:~$ sort data.txt | uniq -u
+EN632PlfYiZbn3PhVK3XOGSlNInNE00t
+Explication de la commande : 
+sort  → Utilisé pour afficher le contenu du fichier mais il trie le fichier lexicographiquement par lignes (il les réorganise par ordre alphabétique afin que ceux qui correspondent soient ensemble).
+| → est un tube qui redirige la sortie d'une commande vers une autre.
+uniq  → Utilisé pour signaler ou omettre les lignes répétées et en lui passant l' argument -u nous lui disons de ne signaler que les lignes uniques.
+
+niveau 10:
+ssh bandit9@bandit.labs.overthewire.org -p 2220
+bandit9@bandit:~$ ls
+data.txt
+bandit9@bandit:~$ strings data.txt | grep "===="
+4========== the#
+========== password
+========== is
+========== G7w8LIi6J3kTb8A7j9LgrywtEUlyyp6s
+Explication de la commande : 
+strings  → Utilisé pour imprimer les chaînes de caractères imprimables dans les fichiers. Nous utilisons cette commande pour filtrer le caractère lisible par l'homme.
+
+
+niveau 11:
+ssh bandit10@bandit.labs.overthewire.org -p 2220
+bandit10@bandit:~$ ls
+data.txt
+bandit10@bandit:~$ cat data.txt | base64 -d
+The password is 6zPeziLdR2RKNdNYFNb6nVCKzphlXHBM
+Explication de la commande : 
+base64  → Utilisé pour encoder et décoder le fichier avec l'algorithme base64. -d utilisé pour décoder le fichier.
+
+niveau 12:
+ssh bandit11@bandit.labs.overthewire.org -p 2220
+bandit11@bandit:~$ ls
+data.txt
+bandit11@bandit:~$ cat data.txt | tr '[A-Za-z]' '[N-ZA-Mn-za-m]'
+The password is JVNBBFSmZwKKOP0XbFXOoW8chDz5yVRv
+Explication de la commande : 
+tr  → Utilisé pour faire pivoter la chaîne vers l'arrière, Mn est le caractère Az dans la chaîne codée. Ainsi, cette commande inversera les chaînes aux 13 caractères précédents pour décoder les chaînes.
+
+niveau 13:
+ ssh bandit12@bandit.labs.overthewire.org -p 2220
+ bandit12@bandit:~$ ls -al
+total 24
+drwxr-xr-x  2 root     root     4096 Apr 23 18:04 .
+drwxr-xr-x 70 root     root     4096 Apr 23 18:05 ..
+-rw-r--r--  1 root     root      220 Jan  6  2022 .bash_logout
+-rw-r--r--  1 root     root     3771 Jan  6  2022 .bashrc
+-rw-r-----  1 bandit13 bandit12 2642 Apr 23 18:04 data.txt
+-rw-r--r--  1 root     root      807 Jan  6  2022 .profile
+bandit12@bandit:~$ mkdir /tmp/test
+bandit12@bandit:~$ cp data.txt /tmp/test
+bandit12@bandit:~$ cd /tmp/test
+bandit12@bandit:/tmp/test$ ls
+data.txt
+bandit12@bandit:/tmp/test$ file data.txt 
+data.txt: ASCII text
+bandit12@bandit:/tmp/test$ ls -al
+total 1164
+drwxrwxr-x  2 bandit12 bandit12    4096 May  7 13:15 .
+drwxrwx-wt 42 root     root     1179648 May  7 13:16 ..
+-rw-r-----  1 bandit12 bandit12    2642 May  7 13:15 data.txt
+bandit12@bandit:/tmp/test$ xxd -r data.txt data1
+bandit12@bandit:/tmp/test$ ls
+data1  data.txt
+bandit12@bandit:/tmp/test$ file data1 data1
+data1: gzip compressed data, was "data2.bin", last modified: Sun Apr 23 18:04:23 2023, max compression, from Unix, original size modulo 2^32 581
+data1: gzip compressed data, was "data2.bin", last modified: Sun Apr 23 18:04:23 2023, max compression, from Unix, original size modulo 2^32 581
+bandit12@bandit:/tmp/test$ mv data1 data2.gz
+bandit12@bandit:/tmp/test$ ls
+data2.gz  data.txt
+bandit12@bandit:/tmp/test$ gzip -d data2.gz
+bandit12@bandit:/tmp/test$ ls
+data2  data.txt
+bandit12@bandit:/tmp/test$ file data2
+data2: bzip2 compressed data, block size = 900k
+bandit12@bandit:/tmp/test$ ls
+data2  data.txt
+bandit12@bandit:/tmp/test$ mv data2 data3.bz2
+bandit12@bandit:/tmp/test$ ls
+data3.bz2  data.txt
+bandit12@bandit:/tmp/test$ file data3.bz2
+data3.bz2: bzip2 compressed data, block size = 900k
+bandit12@bandit:/tmp/test$ bzip -d data3.bz2
+Command 'bzip' not found, but there are 20 similar ones.
+bandit12@bandit:/tmp/test$ ls
+data3.bz2  data.txt
+bandit12@bandit:/tmp/test$ file data3 data3
+data3: cannot open `data3' (No such file or directory)
+data3: cannot open `data3' (No such file or directory)
+bandit12@bandit:/tmp/test$ ls
+data3.bz2  data.txt
+bandit12@bandit:/tmp/test$ file data3 data3
+data3: cannot open `data3' (No such file or directory)
+data3: cannot open `data3' (No such file or directory)
+bandit12@bandit:/tmp/test$ bzip2 -d data3.bz2
+bandit12@bandit:/tmp/test$ ls
+data3  data.txt
+bandit12@bandit:/tmp/test$ file data3 data3
+data3: gzip compressed data, was "data4.bin", last modified: Sun Apr 23 18:04:23 2023, max compression, from Unix, original size modulo 2^32 20480
+data3: gzip compressed data, was "data4.bin", last modified: Sun Apr 23 18:04:23 2023, max compression, from Unix, original size modulo 2^32 20480
+bandit12@bandit:/tmp/test$ ls
+data3  data.txt
+bandit12@bandit:/tmp/test$ file data3
+data3: gzip compressed data, was "data4.bin", last modified: Sun Apr 23 18:04:23 2023, max compression, from Unix, original size modulo 2^32 20480
+bandit12@bandit:/tmp/test$ mv data3 data4.gz
+bandit12@bandit:/tmp/test$ ls
+data4.gz  data.txt
+bandit12@bandit:/tmp/test$ gzip -d data4.gz
+bandit12@bandit:/tmp/test$ ls
+data4  data.txt
+bandit12@bandit:/tmp/test$ file data4
+data4: POSIX tar archive (GNU)
+bandit12@bandit:/tmp/test$ tar -xvf data4
+data5.bin
+bandit12@bandit:/tmp/test$ file data5.bin
+data5.bin: POSIX tar archive (GNU)
+bandit12@bandit:/tmp/test$ tar - xvf data5.bin
+tar: You must specify one of the '-Acdtrux', '--delete' or '--test-label' options
+Try 'tar --help' or 'tar --usage' for more information.
+bandit12@bandit:/tmp/test$ tar -xvf data5.bin
+data6.bin
+bandit12@bandit:/tmp/test$ file data6.bin
+data6.bin: bzip2 compressed data, block size = 900k
+bandit12@bandit:/tmp/test$ mv data6
+mv: missing destination file operand after 'data6'
+Try 'mv --help' for more information.
+bandit12@bandit:/tmp/test$ mv data6.bin data7.bz2
+bandit12@bandit:/tmp/test$ ls
+data4  data5.bin  data7.bz2  data.txt
+bandit12@bandit:/tmp/test$ file data7.bz2
+data7.bz2: bzip2 compressed data, block size = 900k
+bandit12@bandit:/tmp/test$ bzip2 -d data7.bz2
+bandit12@bandit:/tmp/test$ ls
+data4  data5.bin  data7  data.txt
+bandit12@bandit:/tmp/test$ file data7
+data7: POSIX tar archive (GNU)
+bandit12@bandit:/tmp/test$ tar -xvf data7
+data8.bin
+bandit12@bandit:/tmp/test$ file data8.bin data8.bin
+data8.bin: gzip compressed data, was "data9.bin", last modified: Sun Apr 23 18:04:23 2023, max compression, from Unix, original size modulo 2^32 49
+data8.bin: gzip compressed data, was "data9.bin", last modified: Sun Apr 23 18:04:23 2023, max compression, from Unix, original size modulo 2^32 49
+bandit12@bandit:/tmp/test$ mv data8.bin data9.gz
+bandit12@bandit:/tmp/test$ gzip -d data9.gz
+bandit12@bandit:/tmp/test$ ls
+data4  data5.bin  data7  data9  data.txt
+bandit12@bandit:/tmp/test$ file data9
+data9: ASCII text
+bandit12@bandit:/tmp/test$ cat data9
+The password is wbWdlBxEir4CaE8LaPhauuOo6pwRmrDw
+Explication : 
+drwxr-xr-x → Cela mentionne que nous n'avions aucune permission d'écrire un fichier sur ce répertoire, c'est pourquoi nous devons créer un nouveau répertoire sous les répertoires /tmp.
+Explication de la commande : 
+mkdir → Utilisé pour créer un nouveau répertoire. 
+cp → Utilisé pour copier un fichier dans des répertoires spécifiques.
+Explication : 
+drwxrws-wt → Ok, maintenant nous avons la permission d'écrire un fichier dans ce répertoire.
+xxd  → Utilisé pour faire un hexdump ou faire l'inverse. -r utilisé pour faire l'opération inverse : convertir (ou patcher) le vidage hexadécimal en binaire. 
+mv → Utilisé pour renommer SOURCE en DEST, ou déplacer SOURCE(s) vers DIRECTORY. 
+gzip → Utilisé pour compresser ou décompresser des fichiers. -d utilisé pour décompresser les fichiers.
+bzip2 → Utilisé pour compresser les fichiers à l'aide de l'algorithme de compression de texte par tri de blocs de Burrows-Wheeler et du codage de Huffman. -d utilisé pour décompresser les fichiers.
+tar → Est un utilitaire d'archivage. -xvf utilisé pour extraire tous les fichiers des fichiers archive.tar.
+
+
+niveau 14:
+ssh bandit13@bandit.labs.overthewire.org -p 2220
+bandit13@bandit:~$ ls
+sshkey.private
+bandit13@bandit:~$ cat sshkey.private
+ssh -i sshkey.private bandit14@localhost -p 2220
+fGrHPx402xGC7U7rXKDaxiWFTOiF0ENq
+
+niveau 15:
+bandit14@bandit:~$  cd /etc/bandit_pass/
+bandit14@bandit:/etc/bandit_pass$ ls
+bandit0   bandit13  bandit18  bandit22  bandit27  bandit31  bandit6
+bandit1   bandit14  bandit19  bandit23  bandit28  bandit32  bandit7
+bandit10  bandit15  bandit2   bandit24  bandit29  bandit33  bandit8
+bandit11  bandit16  bandit20  bandit25  bandit3   bandit4   bandit9
+bandit12  bandit17  bandit21  bandit26  bandit30  bandit5
+bandit14@bandit:/etc/bandit_pass$ cat bandit1
+cat: bandit1: Permission denied
+bandit14@bandit:/etc/bandit_pass$ cat bandit14
+fGrHPx402xGC7U7rXKDaxiWFTOiF0ENq
+bandit14@bandit:/etc/bandit_pass$ echo
+
+bandit14@bandit:/etc/bandit_pass$ echo fGrHPx402xGC7U7rXKDaxiWFTOiF0ENq | nc localhost 3000
+bandit14@bandit:/etc/bandit_pass$ echo fGrHPx402xGC7U7rXKDaxiWFTOiF0ENq | nc localhost 30000
+Correct!
+jN2kgmIXJ6fShzhT2avhotn4Zcka6tnt
+Explication de la commande : 
+echo → Utilisé pour afficher une ligne de texte. 
+nc → Est un simple utilitaire Unix qui lit et écrit des données sur les connexions réseau, en utilisant le protocole TCP ou UDP.
+
+niveau 16:
+ssh bandit15@bandit.labs.overthewire.org -p 2220
+bandit15@bandit:~$ ls 
+bandit15@bandit:~$ cat /etc/bandit_pass/bandit15
+jN2kgmIXJ6fShzhT2avhotn4Zcka6tnt
+bandit15@bandit:~$ openssl s_client -connect localhost:30001
+jN2kgmIXJ6fShzhT2avhotn4Zcka6tnt
+Correct!
+JQttfApK4SeyHwDlI9SXGR50qclOAil1
+
+niveau 17:
+ssh bandit16@bandit.labs.overthewire.org -p 2220
+bandit16@bandit :~$ nmap -A localhost -p 31000-32000
+Explication de la commande : 
+nmap → Est un outil d'exploration réseau et de sécurité qui permet de faire du scan de port. -A utilisé pour activer la détection du système d'exploitation, la détection de la version, l'analyse des scripts et le traceroute.
+bandit16@bandit:~$ cat /etc/bandit_pass/bandit16
+ cluFn7wTiGryunymYOu4RcffSxQluehd 
+bandit16@bandit:~$ openssl s_client -connect localhost:31790
+
+
+
+
+
+
